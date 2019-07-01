@@ -25,6 +25,42 @@ app.get('/', (req, res) => {
   res.send('hello world!')
 })
 
+// 列出全部 Todo
+app.get('/todos', (req, res) => {
+  res.send('列出所有Todo')
+})
+
+// 新增一筆 Todo 頁面
+app.get('/todos/new', (req, res) => {
+  res.send('新增Todo頁面')
+})
+
+// 顯示一筆 Todo 的詳細內容
+app.get('/todos/:id', (req, res) => {
+  res.send('顯示Todo的詳細內容')
+})
+
+// 新增一筆  Todo
+app.post('/todos', (req, res) => {
+  res.send('建立Todo')
+})
+
+// 修改 Todo 頁面
+app.get('/todos/:id/edit', (req, res) => {
+  res.send('修改Todo頁面')
+})
+
+// 修改 Todo
+app.post('/todos/:id', (req, res) => {
+  res.send('修改Todo')
+})
+
+// 刪除 Todo
+app.post('/todos/:id/delete', (req, res) => {
+  res.send('刪除Todo')
+})
+
+
 app.listen(3000, () => {
   console.log('App is running!!!!!!!!!!')
 })
