@@ -9,7 +9,7 @@ db.on('error', () => {
   console.log('db error')
 })
 
-db.once('opne', () => {
+db.once('open', () => {
   console.log('db connected!')
 
   for (var i = 0; i < 10; i++) {
