@@ -31,7 +31,10 @@ const Todo = require('./models/todo')
 
 // Todo首頁
 app.get('/', (req, res) => {
-  return res.render('index')
+  Todo.find((err, todos) => {    // 把 Todo model 所有的資料都抓回來
+    if (err) return console.error(err)
+    return res.render('index', { todos: todos })  // 將資料傳給 index 樣板
+  })
 })
 
 // 列出全部 Todo
