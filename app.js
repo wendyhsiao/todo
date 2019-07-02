@@ -63,7 +63,10 @@ app.post('/todos', (req, res) => {
 
 // 顯示一筆 Todo 的詳細內容
 app.get('/todos/:id', (req, res) => {
-  res.send('顯示Todo的詳細內容')
+  Todo.findById(req.param.id, (err, todo) => {
+    if (err) return console.error(err)
+    return res.render('detail', { todo: todo })
+  })
 })
 
 // 新增一筆  Todo
@@ -87,6 +90,6 @@ app.post('/todos/:id/delete', (req, res) => {
 })
 
 
-app.listen(3000, () => {
-  console.log('App is running!!!!!!!!!!')
-})
+// app.listen(3000, () => {
+//   console.log('App is running!!!!!!!!!!')
+// })
